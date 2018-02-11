@@ -39,7 +39,7 @@ const App = () => {
         <h1>{config.app.title}</h1>
       </div>
       <hr />
-      <Switch>{routes.map(route => RouteWithSubRoutes(route))}</Switch>
+      <Switch>{routes().map(route => RouteWithSubRoutes(route))}</Switch>
     </div>
   );
 };

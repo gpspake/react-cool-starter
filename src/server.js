@@ -66,7 +66,7 @@ app.get('*', (req, res) => {
   const loadBranchData = (): Promise<any> | Object => {
     const promises = [];
 
-    routes.some(route => {
+    routes().some(route => {
       const match = matchPath(req.path, route);
 
       if (match && route.loadData)
