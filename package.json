@@ -136,8 +136,8 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": ["plugin:lodash-fp/recommended", "airbnb", "prettier"],
-    "plugins": ["lodash-fp", "react", "prettier"],
+    "extends": ["plugin:lodash-fp/recommended", "airbnb", "prettier", "plugin:react-redux/recommended"],
+    "plugins": ["lodash-fp", "react", "prettier", "react-redux"],
     "settings": {
       "import/resolver": {
         "webpack": {
