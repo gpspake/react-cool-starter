@@ -53,13 +53,15 @@ export class UserInfo extends PureComponent<Props> {
   }
 }
 
-const connector = connect(
-  ({ userInfo }: ReduxState) => ({ userInfo }),
-  (dispatch: Dispatch) => ({
-    fetchUserIfNeeded: (id: string) =>
-      dispatch(usersAction.fetchUserIfNeeded(id))
-  })
-);
+const mapStateToProps = ({ userInfo }: ReduxState) => ({ userInfo });
 
-// Enable hot reloading for async componet
-export default compose(hot(module), withRouter, connector)(UserInfo);
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  fetchUserIfNeeded: (id: string) => dispatch(usersAction.fetchUserIfNeeded(id))
+});
+
+// Enable hot reloading for async component
+export default compose(
+  hot(module),
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)(UserInfo);
